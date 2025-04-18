@@ -5,6 +5,8 @@ VisualStudioVersion = 17.13.35931.197
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cascading_Value", "Cascading_Value\Cascading_Value\Cascading_Value.csproj", "{49B620AA-B404-237D-28E2-AFCB785DBE43}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Make_Table_Scrollable", "Make_Table_Scrollable\Make_Table_Scrollable\Make_Table_Scrollable.csproj", "{29AD737A-186C-6C28-A1C3-6187318B98DE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{49B620AA-B404-237D-28E2-AFCB785DBE43}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{49B620AA-B404-237D-28E2-AFCB785DBE43}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{49B620AA-B404-237D-28E2-AFCB785DBE43}.Release|Any CPU.Build.0 = Release|Any CPU
+		{29AD737A-186C-6C28-A1C3-6187318B98DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{29AD737A-186C-6C28-A1C3-6187318B98DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{29AD737A-186C-6C28-A1C3-6187318B98DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{29AD737A-186C-6C28-A1C3-6187318B98DE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
