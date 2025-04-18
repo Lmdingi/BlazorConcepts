@@ -1,0 +1,14 @@
+﻿@page "/parent"
+
+<h1 style="@Style; @Border">Parent</h1>
+<CascadingValue Value="Style" Name="Style">
+    <CascadingValue Value="Border" Name="Border">
+            <Child></Child>
+    </CascadingValue>
+</CascadingValue>
+
+
+@code {
+    public string Style { get; set; } = "color:red";
+    public string Border { get; set; } = "border:1px solid red";
+}

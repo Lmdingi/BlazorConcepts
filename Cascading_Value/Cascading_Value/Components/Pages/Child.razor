@@ -1,0 +1,10 @@
+﻿<h2 style="@Style; @Border">Child</h2>
+<GrandChild></GrandChild>
+
+@code {
+    [CascadingParameter(Name = "Style")]
+    public string Style { get; set; }
+
+    [CascadingParameter(Name = "Border")]
+    public string Border { get; set; }
+}
