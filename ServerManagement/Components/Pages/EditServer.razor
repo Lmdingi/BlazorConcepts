@@ -1,10 +1,14 @@
-﻿@page "/server/{id:int}"
+﻿@page "/servers/{id:int}"
+
+@inject NavigationManager NavigationManager
+
 <h3>Edit Server</h3>
 <br />
+<br />
 
-@if(Server is not null)
+@if(Server != null)
 {
-    <EditForm Model="Server" FormName="formServer" OnInvalidSubmit="Submit">
+    <EditForm Model="Server" FormName="formServer" OnValidSubmit="Submit">
         <DataAnnotationsValidator></DataAnnotationsValidator>
         <ValidationSummary></ValidationSummary>
 
@@ -47,18 +51,28 @@
     [Parameter]
     public int Id { get; set; }
 
-    [SupplyParameterFromForm]
+    [SupplyParameterFromForm(FormName = "formServer")]
     private Server? Server { get; set; }
 
     protected override void OnParametersSet()
     {
         Server ??= ServersRepository.GetServerById(this.Id);
     }
+
     private void Submit()
     {
         if(Server != null)
         {
             ServersRepository.UpdateServer(Server.Id, Server);
+        }
+
+        try
+        {
+            NavigationManager.NavigateTo("/servers");
+        }
+        catch(Exception ex)
+        {
+            Console.WriteLine(ex);
         }
     }
 }
