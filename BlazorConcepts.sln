@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cascading_Value", "Cascadin
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Make_Table_Scrollable", "Make_Table_Scrollable\Make_Table_Scrollable\Make_Table_Scrollable.csproj", "{29AD737A-186C-6C28-A1C3-6187318B98DE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServerManagement", "ServerManagement\ServerManagement.csproj", "{38EB7A46-3408-40D9-9569-D70E100159EE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{29AD737A-186C-6C28-A1C3-6187318B98DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{29AD737A-186C-6C28-A1C3-6187318B98DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{29AD737A-186C-6C28-A1C3-6187318B98DE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{38EB7A46-3408-40D9-9569-D70E100159EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{38EB7A46-3408-40D9-9569-D70E100159EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{38EB7A46-3408-40D9-9569-D70E100159EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{38EB7A46-3408-40D9-9569-D70E100159EE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
