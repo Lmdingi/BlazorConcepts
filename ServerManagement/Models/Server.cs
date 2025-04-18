@@ -3,7 +3,7 @@
     public class Server
     {     
         // props
-        public int ServerId { get; set; }
+        public int Id { get; set; }
         public string? Name { get; set; }
         public string? City { get; set; }
         public bool IsOnline { get; set; }
