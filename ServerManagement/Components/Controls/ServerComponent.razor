@@ -1,4 +1,4 @@
-﻿if(server != null)
+﻿@if (Server != null)
 {
     <p style="@($"color:{(Server.IsOnline ? "green" : "red")}")">
         @Server.Name is in @Server.City that is @(Server.IsOnline ? "online" : "offline")
