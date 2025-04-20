@@ -1,4 +1,6 @@
-﻿@if(cities != null && cities.Count > 0)
+﻿@implements IDisposable
+
+@if(cities != null && cities.Count > 0)
 {
     <div class="container-fluid text-center">
         <div class="row w-100">
@@ -25,5 +27,48 @@
     public void ClearSelection()
     {
         this.selectedCity = string.Empty;
+    }
+
+    // lifecycle event hooks
+    public override Task SetParametersAsync(ParameterView parameters)
+    {
+        Console.WriteLine($"CityListComponent: {nameof(SetParametersAsync)}: {Guid.NewGuid()}");
+        return base.SetParametersAsync(parameters);
+    }
+
+    protected override void OnParametersSet()
+    {
+        base.OnParametersSet();
+        Console.WriteLine($"CityListComponent: {nameof(OnParametersSet)}: {Guid.NewGuid()}");
+    }
+
+    protected override void OnAfterRender(bool firstRender)
+    {
+        base.OnAfterRender(firstRender);
+        Console.WriteLine($"CityListComponent: {nameof(OnAfterRender)}: {Guid.NewGuid()}");
+
+    }
+
+    protected override bool ShouldRender()
+    {
+        Console.WriteLine($"CityListComponent: {nameof(ShouldRender)}: {Guid.NewGuid()}");
+        return base.ShouldRender();
+    }
+
+    protected override Task OnParametersSetAsync()
+    {
+        Console.WriteLine($"CityListComponent: {nameof(OnParametersSetAsync)}: {Guid.NewGuid()}");
+        return base.OnParametersSetAsync();
+    }
+
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        Console.WriteLine($"CityListComponent: {nameof(OnInitialized)}: {Guid.NewGuid()}");
+    }
+
+    public void Dispose()
+    {
+        Console.WriteLine($"CityListComponent: {nameof(Dispose)}: {Guid.NewGuid()}");
     }
 }
