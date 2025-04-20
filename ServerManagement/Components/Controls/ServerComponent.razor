@@ -1,23 +1,69 @@
-﻿@if (Server != null)
+﻿@inject NavigationManager NavigationManager
+
+@if (Server != null)
 {
-    <p style="@($"color:{(Server.IsOnline ? "green" : "red")}")">
-        @Server.Name is in @Server.City that is @(Server.IsOnline ? "online" : "offline")
+    <li @key="Server.Id" style="background-color: @BackgroundColor()">
+        @Server.Name in @Server.City is
+        <span style="color:@((Server.IsOnline ? "green" : "red"))">
+            @(Server.IsOnline ? "online" : "offline")
+        </span>
         &nbsp;
-    <button type="button" class="btn btn-primary" @onclick="ChangeSatus">Turn On/Off</button>
-    </p>
+        @if (Server.IsOnline)
+        {
+            <button type="button" class="btn btn-outline-danger" @onclick="@(()=>{Server.IsOnline = false;})">Turn Off</button>
+        }
+        else
+        {
+            <button type="button" class="btn btn-outline-success" @onclick="@(()=>{Server.IsOnline = true;})">Turn On</button>
+        }
+
+        &nbsp;
+        <a href="/Servers/@Server.Id" class="btn btn-link">Edit</a>
+        &nbsp
+        <EditForm Model="Server"
+        FormName="@($"form-server-{Server.Id}")"
+        OnValidSubmit="@(()=> {DeleteServer(Server.Id);})">
+            <button type="submit" class="btn btn-primary">Delete</button>
+        </EditForm>
+    </li>
 }
 
 @code {
-    [SupplyParameterFromForm(FormName = "serverComponentForm")]
-    private Server? Server { get; set; } = new Server { Name = "Server 1", City = "Toronto" };
+    [Parameter]
+    public Server? Server { get; set; }
 
-    // private Server server = new Server { Name = "Server 1", City = "Toronto"};
+    [CascadingParameter(Name = "SelectedCity")]
+    public string? SelectedCity { get; set; }
 
-    private void ChangeSatus()
+
+    private void DeleteServer(int id)
     {
-        if(Server != null)
+        if (id > 0)
         {
-            this.Server.IsOnline = !Server.IsOnline;
+            ServersRepository.DeleteServer(id);
+            // NavigationManager.Refresh();
         }
+
+        try
+        {
+            NavigationManager.NavigateTo("/servers", true);
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex);
+        }
+    }
+
+    private string BackgroundColor()
+    {   
+        switch (this.SelectedCity)
+            {
+                case "Toronto": return "powderblue";
+                case "Montreal": return "lightgray";
+                case "Ottawa": return "palegreen";
+                case "Calgary": return "pink";
+                case "Halifax": return "blue";
+                default: return "white";
+            }
     }
 }
