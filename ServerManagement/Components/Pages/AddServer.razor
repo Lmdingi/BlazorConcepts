@@ -1,6 +1,7 @@
 ﻿@page "/servers/add"
 
 @inject NavigationManager NavigationManager
+@inject IServersEFCoreRepository ServersEFCoreRepository
 
 <h3>Add Server</h3>
 <br />
@@ -51,7 +52,7 @@
     {
         if(Server != null)
         {
-            ServersRepository.AddServer(Server);
+            ServersEFCoreRepository.AddServer(Server);
         }
 
         try

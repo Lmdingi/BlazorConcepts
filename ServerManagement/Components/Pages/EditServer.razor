@@ -1,6 +1,7 @@
 ﻿@page "/servers/{id:int}"
 
 @inject NavigationManager NavigationManager
+@inject IServersEFCoreRepository ServersEFCoreRepository
 
 <h3>Edit Server</h3>
 <br />
@@ -56,14 +57,14 @@
 
     protected override void OnParametersSet()
     {
-        Server ??= ServersRepository.GetServerById(this.Id);
+        Server ??= ServersEFCoreRepository.GetServerById(this.Id);
     }
 
     private void Submit()
     {
         if(Server != null)
         {
-            ServersRepository.UpdateServer(Server.Id, Server);
+            ServersEFCoreRepository.UpdateServer(Server.Id, Server);
         }
 
         try

@@ -1,4 +1,5 @@
 ﻿@inject NavigationManager NavigationManager
+@inject IServersEFCoreRepository ServersEFCoreRepository
 
 <ul class="list-unstyled">
 <RepeaterComponent Items="this.servers">
@@ -19,11 +20,11 @@
     {
         if (string.IsNullOrWhiteSpace(this.SearchFilter))
         {
-            servers = ServersRepository.GetServersByCity(CityName ?? "Toronto");
+            servers = ServersEFCoreRepository.GetServersByCity(CityName ?? "Toronto");
         }
         else
         {
-            servers = ServersRepository.SearchServers(this.SearchFilter);
+            servers = ServersEFCoreRepository.SearrchServers(this.SearchFilter);
         }
         
     }
